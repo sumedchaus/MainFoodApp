@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+
+        android:id="@+id/testFragment"
+        android:name="com.cs.mainfoodapp.screens.fragments.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" >
+        <argument
+            android:name="mealName"
+            app:argType="string" />
+        <argument
+            android:name="mealId"
+            app:argType="string" />
+        <argument android:name="mealThumb" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoriesFragment"
+        android:name="com.cs.mainfoodapp.screens.fragments.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" >
+        <action
+            android:id="@+id/action_categoriesFragment_to_detailCategoryMealsFragment"
+            app:destination="@id/detailCategoryMealsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.cs.mainfoodapp.screens.fragments.FavouriteFragment"
+        android:label="fragment_favourite"
+        tools:layout="@layout/fragment_favourite" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.cs.mainfoodapp.screens.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailCategoryMealsFragment"
+            app:destination="@id/detailCategoryMealsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailCategoryMealsFragment"
+        android:name="com.cs.mainfoodapp.screens.fragments.DetailCategoryMealsFragment"
+        android:label="fragment_detail_category"
+        tools:layout="@layout/fragment_detail_category" >
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailCategoryMealsFragment_to_testFragment"
+            app:destination="@id/testFragment" />
+    </fragment>
+</navigation>
